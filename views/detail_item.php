@@ -35,7 +35,7 @@
                                         echo '<div class="row">';
                                             echo '<div class="col-md-4 center">';
                                                 echo '<div class="card-body">';
-                                                    echo '<img src="../images/'.$row2["image_name"].'" class="card-img-top" alt="..." style="width: 150px;">';
+                                                    echo '<img src="../images/'.$row2["image_name"].'" class="card-img-top" alt="..." style="width: 300px;">';
                                                 echo '</div>';
                                             echo '</div>';
                                             echo '<div class="col-md-8">';
