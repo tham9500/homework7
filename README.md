@@ -6,3 +6,5 @@ This work was created by Tham Saleerueng. Starting from January 29, 2022 to Janu
 Due to the size of the picture given by the problem, the picture looks disproportionate. I actually only resized the height.
 
 thanks for copying
+
+You can view the work at "git clone https://github.com/tham9500/homework7.git"

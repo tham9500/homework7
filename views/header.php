@@ -20,7 +20,7 @@
                
                 
             </ul>                    
-                <button class="btn btn-danger shadow-sm" type="submit">ออกจากระบบ</button>
+                <a class="btn btn-danger shadow-sm" href="../../work7/process/logout.php" type="submit">ออกจากระบบ</a>
             </div>
         </div>
     </nav>
