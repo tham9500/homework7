@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2022 at 06:49 PM
+-- Generation Time: Jan 30, 2022 at 01:10 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -20,6 +20,42 @@ SET time_zone = "+00:00";
 --
 -- Database: `storage`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item_cate`
+--
+
+CREATE TABLE `item_cate` (
+  `cate_id` int(11) NOT NULL,
+  `cate_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `item_cate`
+--
+
+INSERT INTO `item_cate` (`cate_id`, `cate_name`) VALUES
+(8, 'ปากกา'),
+(9, 'ดินสอ'),
+(10, 'ยางลบ'),
+(11, 'ไม้บรรทัด'),
+(12, 'ชุดเลขา/วงเวียน'),
+(13, 'กระเป๋า/กล่องดินสอ'),
+(14, 'กบเหลา'),
+(15, 'ไส้ดินสอ'),
+(16, 'สมุด'),
+(17, 'กรรไกร/คัตเตอร์'),
+(18, 'เก็บเอกสาร'),
+(19, 'กาว / กาวแท่ง'),
+(20, 'คลิป/ลวดเสียบ/หมุดต่าง'),
+(21, 'โพสอิท/กระดาษโน๊ต'),
+(22, 'อื่นๆ'),
+(23, 'เก็บนามบัตร/สายห้อยบัตร'),
+(24, 'เครื่องคิดเลข'),
+(26, 'อุปกรณ์ทำรายงาน'),
+(27, 'เทป/น้ำยาลบคำผิด');
 
 -- --------------------------------------------------------
 
@@ -53,7 +89,7 @@ INSERT INTO `item_detail` (`item_id`, `cate_id`, `item_name`, `image_name`, `ite
 (1643471084, 9, 'ดินสอต่อไส้', '1643471084.jpg', 225, 'ดินสอ', 'ดินสอต่อไส้ (ราคา/กล่อง 40 แท่ง)'),
 (1643471136, 9, 'ดินสอกด 2.0 มม', '1643471136.jpg', 225, 'ดินสอ', 'ดินสอกด 2.0 มม (ราคา/กล่อง 48 แท่ง)'),
 (1643471189, 9, 'ควอนตั้มดินสอดำ QP920 2B(1x6)', '1643471189.jpg', 190, 'ดินสอ', 'ควอนตั้มดินสอดำ QP920 2B(1x6) (ราคา/12แพ็ค =72 แท่ง)'),
-(1643471225, 9, 'เอลเฟ่นดินสอดำ HB 2018', '1643471225.jpg', 100, 'ดินสอ', '\r\nเอลเฟ่นดินสอดำ HB 2018 (ราคา/กระป๋อง 50 แท่ง)'),
+(1643471225, 9, 'เอลเฟ่นดินสอดำ HB 2018', '1643471225.jpg', 100, 'ดินสอ', 'เอลเฟ่นดินสอดำ HB 2018 (ราคา/กระป๋อง 50 แท่ง)'),
 (1643471365, 9, 'ดินสอไม้ HBแพ็ค 12 แท่ง ', '1643471365.jpg', 198, 'ดินสอ', 'ดินสอไม้ HBแพ็ค 12 แท่ง (ราคา/12 แพ็ค = 144 แท่ง)'),
 (1643471529, 10, 'DL ยางลบ H303', '1643471529.jpg', 295, 'ยางลบ', 'DL ยางลบ H303 (ราคา/กล่อง 45 ก้อน)'),
 (1643471574, 10, 'ยางลบneon', '1643471574.jpg', 200, 'ยางลบ', 'ยางลบneon (ราคา/กล่อง 32 ก้อน)'),
@@ -118,9 +154,34 @@ INSERT INTO `item_detail` (`item_id`, `cate_id`, `item_name`, `image_name`, `ite
 (1643476703, 26, 'สันรูดแฟนซี 10 มิล', '1643476703.jpg', 70, 'อุปกรณ์ทำรายงาน', 'สันรูดแฟนซี 10 มิล(ราคา/โหล)'),
 (1643476734, 26, 'สันรูดแฟนซี 7 มิล', '1643476734.jpg', 60, 'อุปกรณ์ทำรายงาน', 'สันรูดแฟนซี 7 มิล(ราคา/โหล)');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_data`
+--
+
+CREATE TABLE `user_data` (
+  `user_id` int(11) NOT NULL COMMENT 'Id user',
+  `username` varchar(50) NOT NULL COMMENT 'user name',
+  `password` varchar(50) NOT NULL COMMENT 'password of user'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_data`
+--
+
+INSERT INTO `user_data` (`user_id`, `username`, `password`) VALUES
+(1, 'admin', '1234');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `item_cate`
+--
+ALTER TABLE `item_cate`
+  ADD PRIMARY KEY (`cate_id`);
 
 --
 -- Indexes for table `item_detail`
@@ -130,14 +191,32 @@ ALTER TABLE `item_detail`
   ADD KEY `cate_id` (`cate_id`);
 
 --
+-- Indexes for table `user_data`
+--
+ALTER TABLE `user_data`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `item_cate`
+--
+ALTER TABLE `item_cate`
+  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `item_detail`
 --
 ALTER TABLE `item_detail`
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'item id', AUTO_INCREMENT=1643476735;
+
+--
+-- AUTO_INCREMENT for table `user_data`
+--
+ALTER TABLE `user_data`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id user', AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
