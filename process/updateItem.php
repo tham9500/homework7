@@ -7,12 +7,12 @@ echo $_POST["item_name"];
 
 $op = $_GET["op"];
 
-
+// $id_item = mysqli_real_escape_string($connect,$_POST["item_id"]);
 $cate_id = mysqli_real_escape_string($connect,$_POST["cate_id"]);
 $item_name = mysqli_real_escape_string($connect,$_POST["item_name"]);
 $item_detail = mysqli_real_escape_string($connect,$_POST["item_detail"]);
-$cate_id = mysqli_real_escape_string($connect,$_POST["cate_id"]);
 $item_prince = mysqli_real_escape_string($connect,$_POST["item_prince"]);
+$item_count = mysqli_real_escape_string($connect,$_POST["item_count"]);
     
 $sql_q="SELECT *FROM item_detail WHERE item_name=item_name";
         $result_sql = mysqli_query($connect,$sql_q);
@@ -33,6 +33,10 @@ $sql_q="SELECT *FROM item_detail WHERE item_name=item_name";
             if($prince!=$item_prince&&$item_prince!=null){
                 $prince=$item_prince;
             }
+            $count = $data["item_prince"];
+            if($count!=$item_count&&$item_count!=null){
+                $count = $item_count;
+            }
             $imageName = $data["image_name"]; 
             $type_name = $data["type"];
             $sql_type = "SELECT *FROM item_cate WHERE cate_id = $cate_id";
@@ -50,14 +54,16 @@ if($op == "edit"){
     // exit(0);
     if (!empty($_FILES['fileImage']['name'])) {
         move_uploaded_file($_FILES["fileImage"]["tmp_name"],$mypath.$imageName);
-        $sql = "UPDATE item_detail SET `item_id`='$id',`item_name`='$name',`item_detail`='$detail',`cate_id`='$cate_id',`type`='$type_name',`image_name`='$imageName' WHERE item_id='$id'";
+        $sql = "UPDATE item_detail SET item_id='$id',item_name='$name',`item_detail`='$detail',`cate_id`='$cate_id',`type`='$type_name',`image_name`='$imageName' ,`item_count`='$item_count',`item_prince`='$item_prince' WHERE item_id=$id";
         $mysql_result=mysqli_query($connect,$sql);
         echo "have";
+        echo $sql;
         header('location: ../../../../work7/views/home.php');
     }else{
-        $sql = "UPDATE item_detail SET `item_id`='$id',`item_name`='$name',`item_detail`='$detail',`cate_id`='$cate_id',`type`='$type_name',`image_name`='$imageName' WHERE item_id='$id'";
+        $sql = "UPDATE item_detail SET `item_id`='$id',`item_name`='$name',`item_detail`='$detail',`cate_id`='$cate_id',`type`='$type_name',`image_name`='$imageName',`item_count`=$item_count,`item_prince`='$item_prince' WHERE item_id=$id";
         $mysql_result=mysqli_query($connect,$sql);
         echo "not have";
+        echo $sql;
         header('location: ../../../../work7/views/home.php');
     }
     

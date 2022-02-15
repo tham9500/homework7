@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,6 +71,10 @@
                                         $row2 = mysqli_fetch_array($result_allid);
                                     ?>
                                     <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
+                                        <label for="text">ID</label>
+                                        <input type="text" class="form-control" name="item_id" value="<?php echo $row2["item_id"];?>" disabled>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
                                         <label for="text">ชื่อสินค้า</label>
                                         <input type="text" class="form-control" name="item_name" value="<?php echo $row2["item_name"];?>">
                                     </div>
@@ -78,6 +85,10 @@
                                     <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
                                         <label for="text">ราคาสินค้า</label>
                                         <input type="number" class="form-control" name="item_prince" value="<?php echo $row2["item_prince"];?>">
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
+                                        <label for="text">จำนวนสินค้า</label>
+                                        <input type="number" class="form-control" name="item_count" value="<?php echo $row2["item_count"];?>">
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                             <label for="text">หมวดหมู่<span class="text-danger">*</span></label>

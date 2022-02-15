@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +74,33 @@
             </div> 
         </div>
         <br>
-        <br>
+        <?php 
+            if(isset($_GET["result"]) AND $_GET["result"] == "1"){
+                echo '
+                <div class="col-lg-12">
+                  <div class="alert alert-success shadow-sm" role="alert">
+                    เพิ่มสินค้าลงเรียบร้อย
+                  </div>
+                </div>
+                ';
+              }elseif(isset($_GET["result"]) AND $_GET["result"] == "0"){
+                echo '
+                <div class="col-lg-12">
+                  <div class="alert alert-danger shadow-sm" role="alert">
+                    สินค้าชิ้นนี้หมดเเล้ว
+                  </div>
+                </div>
+                ';
+              }elseif(isset($_GET["result"]) AND $_GET["result"] == "2"){
+                echo '
+                <div class="col-lg-12">
+                  <div class="alert alert-danger shadow-sm" role="alert">
+                    ไม่สามารถเพิ่มสินค้าชนิดนี้ เนื่องจากเลือกสินค้าได้ไม่เกิน 10 ชิ้น
+                  </div>
+                </div>
+                ';
+              }
+        ?>
         <br>
         <div class="row ">
         <div class="py-3">
@@ -113,10 +142,14 @@
                                         echo '<h3 class="card-title">'.$row2["item_name"].'</h3>';
                                         // echo '<p class="card-text">'.$row2["item_detail"].'</p>';
                                         echo '<h5 class="card-title">'.$row2["item_prince"]." บาท".'</h5>';
+                                        echo '<p class="card-title">'.$row2["item_count"]." ชิ้น".'</p>';
                                         echo '<div class="btn-group shadow">';
-                                                echo '<a href="detail_item.php?target='.$row2["item_id"].'" class="btn btn-info" >ดู</a>';    
+                                            echo '<a href="../process/buy_item.php?target='.$row2["item_id"].'&user_id='.$_SESSION["user_id"].'" class="btn btn-success" >ซื้อ</a>';
+                                            echo '<a href="detail_item.php?target='.$row2["item_id"].'" class="btn btn-info" >ดู</a>';
+                                            if($_SESSION["role"]=="admin"){
                                                 echo '<a href="edit_item.php?target='.$row2["item_id"].'" class="btn btn-primary">แก้ไข</a>';    
-                                                echo '<a href="../../work7/process/delItem.php?target='.$row2["item_id"].'" class="btn btn-danger">ลบ</a>';    
+                                                echo '<a href="../../work7/process/delItem.php?target='.$row2["item_id"].'" class="btn btn-danger">ลบ</a>'; 
+                                            }    
                                         echo '</div>';
                                         
                                         

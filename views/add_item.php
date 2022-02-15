@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +43,10 @@
                                     <div class="col-lg-12">
                                         <label for="text">ราคา</label>
                                         <input type="number" class="form-control" name="item_prince" value="" required>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <label for="text">จำนวนสินค้า</label>
+                                        <input type="number" class="form-control" name="item_count" value="" required>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="text">หมวดหมู่<span class="text-danger">*</span></label>

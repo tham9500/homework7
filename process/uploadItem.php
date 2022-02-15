@@ -14,7 +14,7 @@ $cate_id = mysqli_real_escape_string($connect,$_POST["cate_id"]);
 $item_name = mysqli_real_escape_string($connect,$_POST["item_name"]);
 $item_detail = mysqli_real_escape_string($connect,$_POST["item_detail"]);
 $item_prince = mysqli_real_escape_string($connect,$_POST["item_prince"]);
-
+$item_count = mysqli_real_escape_string($connect,$_POST["item_count"]);
 if($op == "new"){
     echo 'new!';
     // exit(0);
@@ -43,8 +43,8 @@ if($op == "new"){
         $type = $type_string["cate_name"];
 
 
-        $sql_Additem = "INSERT INTO item_detail(item_id,cate_id,item_name,item_prince,item_detail,image_name,type)
-        VALUES('$new_id','$cate_id','$item_name','$item_prince','$item_detail','$fileImage','$type')";
+        $sql_Additem = "INSERT INTO item_detail(item_id,cate_id,item_name,item_prince,item_detail,image_name,type,item_count)
+        VALUES('$new_id','$cate_id','$item_name','$item_prince','$item_detail','$fileImage','$type','$item_count')";
         $query_Additemt = mysqli_query($connect,$sql_Additem);
         
         header('location: ../../../../work7/views/home.php');

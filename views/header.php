@@ -11,16 +11,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="../views/home.php">หน้าแรก</a>
                 </li>
+                <?php if($_SESSION["role"]=="admin"){ ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="../views/cate.php">เพิ่มหมวดสินค้า</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="../views/add_item.php">เพิ่มสินค้า</a>
+                    </li>
+                <?php } ?>
                 <li class="nav-item">
-                <a class="nav-link" href="../views/cate.php">เพิ่มหมวดสินค้า</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="../views/add_item.php">เพิ่มสินค้า</a>
+                <a class="nav-link" href="../views/collection.php">ตะกร้าสินค้า</a>
                 </li>
                
                 
-            </ul>                    
-                <a class="btn btn-danger shadow-sm" href="../../work7/process/logout.php" type="submit">ออกจากระบบ</a>
+            </ul>
+               
+                <div>
+                    <a class="btn btn-danger shadow-sm" href="../../work7/process/logout.php" type="submit">ออกจากระบบ</a>
+                </div>                    
+                
             </div>
         </div>
     </nav>
